@@ -19,7 +19,7 @@ ChainSafeDB will hash those records and log their fingerprints to a testnet. If 
 | Week | Goal |
 |------|------|
 | 1    | Project setup(✅) |
-| 1    | CLI scaffold, hashing logic, Connect database scanning + hashing |
+| 1    | CLI scaffold, hashing logic, Connect database scanning + hashing(✅)|
 | 2    | Add blockchain testnet logging, Implement access log tracking |
 | 3    | Testing, polish, documentation |
 | 4    | Final demo + GitHub release |
