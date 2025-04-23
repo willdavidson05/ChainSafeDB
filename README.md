@@ -23,4 +23,6 @@ ChainSafeDB will hash those records and log their fingerprints to a testnet. If 
 | 2    | Add blockchain testnet logging, Implement access log tracking |
 | 3    | Testing, polish, documentation |
 | 4    | Final demo + GitHub release |
+| 4    | *(Optional)* Explore Merkle tree commitments, encrypted roots, and commitment granularity |
+
 
