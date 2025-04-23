@@ -1,6 +1,9 @@
 import argparse
 from chainsafedb.db_scanner import get_records
 from chainsafedb.hasher import hash_record
+from chainsafedb.audit_log import AuditLogger
+from chainsafedb.blockchain_logger import BlockchainLogger
+
 
 def scan_database(db_path, table_name="sensitive_table"):
     try:
