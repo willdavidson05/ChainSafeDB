@@ -6,16 +6,6 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 
 ---
 
-## Features
-
-- Scan and hash important database records
-- Log access events (view, edit, delete)
-- Blockchain logging (Ethereum Sepolia testnet) (optional)
-- Tamper-evident history without exposing actual data
-- Lightweight and easy-to-use CLI interface
-
----
-
 ## Project Interaction Summary
 
 - The **ChainSafeDB CLI** acts as the main controller that starts the scanning and logging process based on user commands.
@@ -47,8 +37,15 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 | Blockchain Logger | Sends fingerprints to smart contract if enabled |
 | Smart Contract | Stores hashes permanently on Sepolia blockchain |
 
+---
 
+## Features
 
+- Scan and hash important database records
+- Log access events (view, edit, delete)
+- Blockchain logging (Ethereum Sepolia testnet) (optional)
+- Tamper-evident history without exposing actual data
+- Lightweight and easy-to-use CLI interface
 
 ---
 
@@ -95,6 +92,16 @@ python3 -m chainsafedb.cli scan \
 
 ---
 
+## Project Details
+
+- **Smart Contract (Deployed on Sepolia Testnet):**  
+  [View Contract on Etherscan](https://sepolia.etherscan.io/address/0xEd81578d72276fdA029306675d1026ec94e03209)
+
+- **Infura Project ID:**  
+  `c19848ad6a3e4c95a4434d585770847d`
+  
+---
+
 ## Development Process
 
 - **Database Integration**  
@@ -122,17 +129,6 @@ python3 -m chainsafedb.cli scan \
   Extensive testing was done to handle blockchain-specific errors like "replacement transaction underpriced."
 
 ---
-
-## Project Details
-
-- **Smart Contract (Deployed on Sepolia Testnet):**  
-  [View Contract on Etherscan](https://sepolia.etherscan.io/address/0xEd81578d72276fdA029306675d1026ec94e03209)
-
-- **Infura Project ID:**  
-  `c19848ad6a3e4c95a4434d585770847d`
-  
----
-
 
 
 ## Team
