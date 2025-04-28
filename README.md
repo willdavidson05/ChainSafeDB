@@ -24,6 +24,8 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 
 - The **smart contract** acts as a permanent, tamper-proof registry of database record fingerprints, ensuring that any unauthorized modification of the database can later be detected by hash mismatch.
 
+**System Architecture Diagram** 
+add image here
 ---
 
 ## Summary of Components
@@ -36,30 +38,6 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 | Audit Logger | Records local access events |
 | Blockchain Logger | Sends fingerprints to smart contract if enabled |
 | Smart Contract | Stores hashes permanently on Sepolia blockchain |
-
-## System Architecture
-
-Database (SQLite)
-       │
-       ▼
-[DB Scanner (db_scanner.py)]
-       │
-       ▼
-[Hasher (hasher.py)]
-       │
-       ▼
-[Audit Logger (audit_log.py)]
-       │
-       ├── (Locally saves access event)
-       │
-       └── (If blockchain enabled)
-             │
-             ▼
-    [Blockchain Logger (blockchain_logger.py)]
-             │
-             ▼
-    [Ethereum Sepolia Smart Contract (LogHash.sol)]
-
 
 ---
 
