@@ -86,7 +86,7 @@ Then run:
 python3 -m chainsafedb.cli scan \
   --db examples/sample.db \
   --enable-chain \
-  --rpc-url "https://polygon-mumbai.infura.io/v3/YOUR_INFURA_ID" \
+  --rpc-url "https://sepolia.infura.io/v3/YOUR_PROJECT_ID" \
   --private-key "YOUR_PRIVATE_KEY" \
   --contract "0xYourDeployedContract" \
   --abi contracts/LogHash.abi.json
