@@ -1,28 +1,78 @@
-# 🔐 ChainSafeDB
+![ChainSafeDB](https://github.com/user-attachments/assets/57637be5-7adb-4baa-965b-10f9c4967e40)
 
-ChainSafeDB is a lightweight, open-source CLI tool for tracking the integrity of sensitive data in traditional databases.  
-Instead of storing actual data on a blockchain, we hash selected records and optionally log those hashes to a testnet like Polygon for tamper-evident verification.
+**Track, audit, and protect sensitive database records — backed by blockchain.**
 
-The tool will also (optionally) track **access events** (view, edit, delete) to sensitive data — creating a permanent audit trail for better visibility and accountability.
-
----
-
-## 💡 Example Use Case
-
-> A developer wants to track if someone has secretly changed or accessed key financial records in a PostgreSQL database.  
-ChainSafeDB will hash those records and log their fingerprints to a testnet. If the hashes ever change, you know something was altered.
+ChainSafeDB is an open-source CLI tool that detects tampering and tracks access to sensitive database records by logging cryptographic fingerprints locally and optionally onto a blockchain network.
 
 ---
 
-## 📅 Project Timeline
+## Features
 
-| Week | Goal |
-|------|------|
-| 1    | Project setup(✅) |
-| 1    | CLI scaffold, hashing logic, Connect database scanning + hashing(✅)|
-| 2    | Add blockchain testnet logging, Implement access log tracking |
-| 3    | Testing, polish, documentation |
-| 4    | Final demo + GitHub release |
-| 4    | *(Optional)* Explore Merkle tree commitments, encrypted roots, and commitment granularity |
+- Scan and hash important database records
+- Log access events (view, edit, delete)
+- Optional blockchain logging (Polygon Mumbai testnet)
+- Tamper-evident history without exposing actual data
+- Lightweight and easy-to-use CLI interface
+
+---
+
+## How It Works
+
+<img width="1232" alt="Screenshot 2025-04-28 at 10 37 40 AM" src="https://github.com/user-attachments/assets/1985c375-7925-44ae-90a9-a62f7328f018" />
+
+
+- Records are scanned from a traditional database
+- Each record is hashed using SHA-256
+- Hashes are logged locally and/or committed to a blockchain smart contract
+- Later verification detects any tampering by comparing hashes
+
+---
+
+## Example Use Case
+
+A financial auditing team needs to track who accesses or modifies sensitive transaction records.  
+ChainSafeDB allows them to:
+- Hash critical records
+- Store fingerprints securely
+- Detect and prove if any unauthorized changes occur
+
+---
+
+## Quick Start
+
+### Local Mode (No Blockchain)
+
+```bash
+python3 -m chainsafedb.cli scan --db examples/sample.db
+```
+
+### Simulated Blockchain Logging
+
+```bash
+python3 -m chainsafedb.cli scan --db examples/sample.db --enable-chain
+```
+
+### Real Blockchain Logging (Optional)
+
+First deploy `LogHash.sol` to Polygon Mumbai using Remix.
+
+Then run:
+
+```bash
+python3 -m chainsafedb.cli scan \
+  --db examples/sample.db \
+  --enable-chain \
+  --rpc-url "https://polygon-mumbai.infura.io/v3/YOUR_INFURA_ID" \
+  --private-key "YOUR_PRIVATE_KEY" \
+  --contract "0xYourDeployedContract" \
+  --abi contracts/LogHash.abi.json
+```
+
+---
+
+## Team
+
+- Parker Taranto
+-  Will Davidson
 
 
