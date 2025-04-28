@@ -1,6 +1,6 @@
 ![ChainSafeDB](https://github.com/user-attachments/assets/57637be5-7adb-4baa-965b-10f9c4967e40)
 
-**Track, audit, and protect sensitive database records — backed by blockchain.**
+**Track, audit, and protect sensitive database records, backed by blockchain.**
 
 ChainSafeDB is an open-source CLI tool that detects tampering and tracks access to sensitive database records by logging cryptographic fingerprints locally and optionally onto a blockchain network (Ethereum Sepolia testnet).
 
@@ -8,21 +8,21 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 
 ## Project Interaction Summary
 
-- The **ChainSafeDB CLI** acts as the main controller that starts the scanning and logging process based on user commands.
+- The ChainSafeDB CLI acts as the main controller that starts the scanning and logging process based on user commands.
 
-- The **DB Scanner** (`db_scanner.py`) connects to a specified SQLite database and fetches records from the target table.
+- The DB Scanner(`db_scanner.py`) connects to a specified SQLite database and fetches records from the target table.
 
-- Each **record** is passed to the **Hasher** (`hasher.py`), which generates a secure SHA-256 hash fingerprint of the record's contents.
+- Each record is passed to the Hasher (`hasher.py`), which generates a secure SHA-256 hash fingerprint of the record's contents.
 
-- For every record scanned, an **Audit Event** is created using the **Audit Logger** (`audit_log.py`), recording metadata like timestamp, user action ("view"), and the generated fingerprint.
+- For every record scanned, an Audit Event is created using the Audit Logger (`audit_log.py`), recording metadata like timestamp, user action ("view"), and the generated fingerprint.
 
 - If blockchain logging is enabled:
-  - The **Blockchain Logger** (`blockchain_logger.py`) takes the fingerprint and:
-    - Builds a transaction to the deployed **LogHash smart contract** (`LogHash.sol`) on the **Ethereum Sepolia testnet**.
-    - Signs and broadcasts the transaction using the user's **Infura endpoint** and **private key**.
+  - The Blockchain Logger (`blockchain_logger.py`) takes the fingerprint and:
+    - Builds a transaction to the deployed LogHash smart contract (`LogHash.sol`) on the Ethereum Sepolia testnet.
+    - Signs and broadcasts the transaction using the user's Infura endpoint and private key.
     - The smart contract emits an immutable event containing the fingerprint hash.
 
-- The **smart contract** acts as a permanent, tamper-proof registry of database record fingerprints, ensuring that any unauthorized modification of the database can later be detected by hash mismatch.
+- The smart contract acts as a permanent, tamper-proof registry of database record fingerprints, ensuring that any unauthorized modification of the database can later be detected by hash mismatch.
 
 **System Architecture Diagram** 
 <p align="center">
