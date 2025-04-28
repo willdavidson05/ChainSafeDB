@@ -25,7 +25,11 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 - The **smart contract** acts as a permanent, tamper-proof registry of database record fingerprints, ensuring that any unauthorized modification of the database can later be detected by hash mismatch.
 
 **System Architecture Diagram** 
-add image here
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5006fc71-56a9-433d-b6de-5613a375a9a9" alt="System Architecture Diagram" width="500"/>
+</p>
+
+
 ---
 
 ## Summary of Components
