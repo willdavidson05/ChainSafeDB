@@ -22,5 +22,6 @@ class BlockchainLogger:
         })
 
         signed_txn = self.web3.eth.account.sign_transaction(txn, private_key=self.account.key)
-        tx_hash = self.web3.eth.send_raw_transaction(signed_txn.rawTransaction)
+        tx_hash = self.web3.eth.send_raw_transaction(signed_txn.raw_transaction)
         return tx_hash.hex()
+
