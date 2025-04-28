@@ -37,6 +37,30 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 | Blockchain Logger | Sends fingerprints to smart contract if enabled |
 | Smart Contract | Stores hashes permanently on Sepolia blockchain |
 
+## System Architecture
+
+Database (SQLite)
+       │
+       ▼
+[DB Scanner (db_scanner.py)]
+       │
+       ▼
+[Hasher (hasher.py)]
+       │
+       ▼
+[Audit Logger (audit_log.py)]
+       │
+       ├── (Locally saves access event)
+       │
+       └── (If blockchain enabled)
+             │
+             ▼
+    [Blockchain Logger (blockchain_logger.py)]
+             │
+             ▼
+    [Ethereum Sepolia Smart Contract (LogHash.sol)]
+
+
 ---
 
 ## Features
@@ -76,7 +100,7 @@ python3 -m chainsafedb.cli scan --db examples/sample.db --enable-chain
 
 ### Real Blockchain Logging (Optional)
 
-First deploy `LogHash.sol` to Polygon Mumbai using Remix.
+First, deploy LogHash.sol using Hardhat or Remix to Sepolia.
 
 Then run:
 
