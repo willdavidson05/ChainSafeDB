@@ -18,7 +18,8 @@ ChainSafeDB is an open-source CLI tool that detects tampering and tracks access 
 
 ## How It Works
 
-##### GOING TO ADD DIAGRAM HERE
+<img width="1232" alt="Screenshot 2025-04-28 at 10 37 40 AM" src="https://github.com/user-attachments/assets/1985c375-7925-44ae-90a9-a62f7328f018" />
+
 
 - Records are scanned from a traditional database
 - Each record is hashed using SHA-256
